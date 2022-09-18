@@ -31,5 +31,12 @@ function playRound(playerSelection, computerSelection){
         return `You Lose, ${computerSelection} beat ${playerSelection}`
     }
 }
-let playerChoise = prompt("Choise rock, paper or scissors").toLowerCase()
-console.log(playRound(playerChoise,getComputerChoise()));
+
+function game(){
+    for (let i = 0; i < 5; i++){
+        let playerChoise = prompt("Choise rock, paper or scissors").toLowerCase()
+        console.log(playRound(playerChoise,getComputerChoise()));  
+    }
+}
+
+game()
