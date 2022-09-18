@@ -18,4 +18,18 @@ function getComputerChoise () {
     return result
 }
 
-console.log(getComputerChoise());
+function playRound(playerSelection, computerSelection){
+    if(playerSelection == computerSelection){
+        return "Empate"
+    }else if(playerSelection == "rock" && computerSelection == "scissors"){
+        return "You Win, rock beat scissors"
+    } else if (playerSelection == "paper" && computerSelection == "rock"){
+        return "You Win, paper beat rock"
+    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+        return "You Win, scissors beat paper"
+    } else {
+        return `You Lose, ${computerSelection} beat ${playerSelection}`
+    }
+}
+let playerChoise = prompt("Choise rock, paper or scissors").toLowerCase()
+console.log(playRound(playerChoise,getComputerChoise()));
