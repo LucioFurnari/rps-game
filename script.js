@@ -43,17 +43,29 @@ function game(){
 }
 const Buttons = document.querySelectorAll("button");
 const scoreText = document.querySelector(".score");
+const scoreResult = document.querySelector(".scoreResult p");
+const playScore = document.querySelector(".player-score span");
+const pcScore = document.querySelector(".pc-score span");
+
+
 let playerScore = 0;
 let computerScore = 0;
+
 Buttons.forEach(button => {
     button.addEventListener("click",(e) => {
-        scoreText.textContent = playRound(e.target.id,getComputerChoise())
-        if(playerScore >= 5) {
-            console.log("Player Win");
+        if(playerScore < 5 || computerScore < 5) {
+            scoreText.textContent = playRound(e.target.id,getComputerChoise())
+            playScore.textContent = playerScore;
+            pcScore.textContent = computerScore;
         } else if(computerScore >= 5){
-            console.log("Computer Win");
+            scoreResult.textContent = "Computer Win!";
+        } else {
+            scoreResult.textContent = "Player Win!";
         }
+            
+        
     })
 })
+
 console.log(Buttons);
 
